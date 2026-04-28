@@ -12,8 +12,10 @@ map_server_loader/
 ├── map_server_loader/
 │   └── __init__.py
 ├── maps/
-│   ├── map.pgm                     # 점유 격자 맵 이미지
-│   └── map.yaml                    # 맵 메타데이터
+│   ├── map.pgm                     # 기본 맵 이미지 (런치 기본값)
+│   ├── map.yaml                    # 기본 맵 메타데이터
+│   ├── clearpath_map.pgm           # 동봉 대체 맵 이미지
+│   └── clearpath_map.yaml          # 동봉 대체 맵 메타데이터
 ├── resource/
 │   └── map_server_loader           # ament resource index 마커
 ├── test/                           # ament 린트 테스트 (flake8/pep257/copyright)
@@ -68,6 +70,10 @@ ros2 launch map_server_loader load_map_server.launch.py use_sim_time:=true
 
 # 라이프사이클 수동 제어 + 디버그 로그
 ros2 launch map_server_loader load_map_server.launch.py autostart:=false log_level:=debug
+
+# 동봉된 대체 맵(clearpath_map) 로드
+ros2 launch map_server_loader load_map_server.launch.py \
+  map:=$(ros2 pkg prefix map_server_loader)/share/map_server_loader/maps/clearpath_map.yaml
 ```
 
 ## 맵 설정
@@ -78,9 +84,9 @@ ros2 launch map_server_loader load_map_server.launch.py autostart:=false log_lev
 |---------|-----|------|
 | `image` | map.pgm | 점유 격자 이미지 파일 |
 | `resolution` | 0.05 | 셀당 해상도 (m/pixel) |
-| `origin` | [-15.090, -25.172, 0] | 맵 원점 좌표 (x, y, yaw) |
+| `origin` | [-65.7, -21.6, 0] | 맵 원점 좌표 (x, y, yaw) |
 | `occupied_thresh` | 0.65 | 점유 판정 임계값 |
-| `free_thresh` | 0.196 | 자유 공간 판정 임계값 |
+| `free_thresh` | 0.25 | 자유 공간 판정 임계값 |
 | `mode` | trinary | 점유/자유/미지 3값 모드 |
 
 > `image` 필드는 YAML 파일이 위치한 디렉토리 기준 상대경로로 해석됩니다. 따라서 `map:=` 인자로 다른 YAML을 지정하면 같은 디렉토리의 `.pgm` 파일이 자동으로 로드됩니다.
