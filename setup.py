@@ -22,8 +22,8 @@ setup(
     zip_safe=True,
     maintainer='neoplanetz',
     maintainer_email='neoplanetz@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Nav2 map_server launcher with bundled occupancy grid map',
+    license='Apache-2.0',
     extras_require={
         'test': [
             'pytest',
