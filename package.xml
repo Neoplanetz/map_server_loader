@@ -3,7 +3,7 @@
 <package format="3">
   <name>map_server_loader</name>
   <version>0.0.0</version>
-  <description>Map server for Nav2</description>
+  <description>Nav2 map_server launcher with bundled occupancy grid map</description>
   <maintainer email="neoplanetz@gmail.com">neoplanetz</maintainer>
   <license>Apache-2.0</license>
 

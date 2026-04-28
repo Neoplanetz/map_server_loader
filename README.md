@@ -78,7 +78,7 @@ ros2 launch map_server_loader load_map_server.launch.py autostart:=false log_lev
 |---------|-----|------|
 | `image` | map.pgm | 점유 격자 이미지 파일 |
 | `resolution` | 0.05 | 셀당 해상도 (m/pixel) |
-| `origin` | [-15.09, -25.172, 0] | 맵 원점 좌표 (x, y, yaw) |
+| `origin` | [-15.090, -25.172, 0] | 맵 원점 좌표 (x, y, yaw) |
 | `occupied_thresh` | 0.65 | 점유 판정 임계값 |
 | `free_thresh` | 0.196 | 자유 공간 판정 임계값 |
 | `mode` | trinary | 점유/자유/미지 3값 모드 |
